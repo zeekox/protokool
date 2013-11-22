@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('protoKoolApp', [
-  'ngSanitize'
+  'ngSanitize',
+  'ngRoute'
 ])
   .config(function ($routeProvider) {
     $routeProvider
