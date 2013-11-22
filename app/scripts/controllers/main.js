@@ -20,7 +20,7 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
 	var counter = 0;
 
 	$scope.addEntry = function(entry) {
-		if($scope.selectedItem === entry) {
+		if($scope.selectedItem === entry && entries.length > 0) {
 			entries[0].count += 'X';
 		} else {
 	

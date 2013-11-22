@@ -24,7 +24,7 @@
 
 
 <aside class="protocol">
-	<div class="button" ng-click="entries.pop()">Delete last</div>
+	<div class="button" ng-click="entries.splice(0,1)">Delete last</div>
 	<div>
 		<div ng-repeat="entry in entries | limitTo:10" class="entry">
 			<div class="name">{{entry.name}}</div>
