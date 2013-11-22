@@ -29,6 +29,26 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
 		}
 	};
 
+	$scope.export = function() {
+		$scope.exportContent = '';
+		for (var i=0; i<entries.length; i++) {
+
+			var d = entries[i].date;
+			var day = d.getDate();
+			var month = d.getMonth();
+			month++;
+			var year = d.getFullYear();
+			var hour = d.getHours();
+			var min = d.getMinutes();
+			var sec = d.getSeconds();
+
+			$scope.exportContent += year + '-' + month + '-' + day + ';';
+			$scope.exportContent += hour + ':' + min + ':' + sec + ';';
+			$scope.exportContent += entries[i].name + '\n';
+		}
+
+	};
+
 
 	$scope.others =['Telefon', 'Anderes', 'Papier', 'Missing'];
 });

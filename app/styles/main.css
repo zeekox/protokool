@@ -1,11 +1,30 @@
 
 .items, .protocol {
-	padding: 0.5em;
 	margin: 1em; 
 	display: inline-block;
+}
+.items, .protocol > div, .export > textarea, .export > div {
+	padding: 0.5em;
 	box-shadow: 0 0 1em #000;
 	border-radius: 1em;
 	background-color: #fff;
+}
+
+textarea {
+	width: 10%;
+	height: 10em;
+}
+
+.button {
+	margin-bottom: 1em;
+	height: 2em;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.export .button {
+	margin-top: 1em;
+	width: 10%;
 }
 
 .items {
@@ -24,7 +43,7 @@
 }
 
 .item {
-	margin: 0.5em;
+	margin: 2em;
 	display: table-cell;
 	padding: 2em;
 	border-radius: 0.5em;
@@ -34,11 +53,12 @@
 	border: 1px solid #000;
 	text-align: center;
 	user-select: none;
+	vertical-align: middle;
 }
 
 .name, .count {
 	display: inline-block;
-	width: 2em;
+	width: 4em;
 }
 
 .active {
