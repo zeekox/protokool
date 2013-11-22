@@ -4,17 +4,19 @@
 
 <section class="items">
 	<div class="row">
-		<div ng-repeat="computer in computers | limitTo:computerCount/2" ng-click="addEntry(computer)" class="item computer">
+		<div ng-repeat="computer in computers | limitTo:computerCount/2" ng-click="addEntry(computer)" 
+				class="item computer" ng-class="{active: computer==selectedItem}">
 			{{computer}}
 		</div>
 	</div>	
 	<div class="row">
-		<div ng-repeat="computer in computers | limitTo:-computerCount/2" ng-click="addEntry(computer)" class="item computer">
+		<div ng-repeat="computer in computers | limitTo:-computerCount/2" ng-click="addEntry(computer)"
+				class="item computer" ng-class="{active: computer==selectedItem}">
 			{{computer}}
 		</div>
 	</div>
 	<div class="row">
-		<div ng-repeat="other in others" class="item other">
+		<div ng-repeat="other in others" class="item other" ng-click="addEntry(other)">
 			{{other}}
 		</div>
 	</div>
@@ -23,7 +25,8 @@
 
 <aside class="protocol">
 	<div ng-repeat="entry in entries | limitTo:-10" class="entry">
-		{{entry}}
+		<div class="name">{{entry.name}}</div>
+		<div class="count">{{entry.count}}<div/>
 	</div>
 </aside>
 

@@ -17,10 +17,18 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
 
 	var entries = $scope.entries = [];
 
+	var counter = 0;
+
 	$scope.addEntry = function(entry) {
-		entries.push(entry);
+		if($scope.selectedItem === entry) {
+			entries[0].count += 'X';
+		} else {
+	
+			$scope.selectedItem = entry;
+			entries.unshift({ id: counter++, name: entry, date: new Date(), count: ''});
+		}
 	};
 
 
-	$scope.others =['Telefon', 'Anderes', 'Papier', 'Break/Missing'];
+	$scope.others =['Telefon', 'Anderes', 'Papier', 'Missing'];
 });
