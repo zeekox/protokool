@@ -44,7 +44,7 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
 
 			$scope.exportContent += year + '-' + month + '-' + day + ';';
 			$scope.exportContent += hour + ':' + min + ':' + sec + ';';
-			$scope.exportContent += entries[i].name + '\n';
+			$scope.exportContent += entries[i].name + ';' + entries[i].count.length + ';\n';
 		}
 
 	};
