@@ -1,20 +1,20 @@
 <header>
-	<h3 class="text-muted">protoKool</h3>
+	<h2 class="text-muted">protoKool</h2>
 </header>
 
 <section class="items">
 	<div class="row">
-		<div ng-repeat="computer in computers | limitTo:computerCount/2" ng-click="addEntry(computer)" class="item computer">
+		<div ng-repeat="computer in computers | limitTo:computerCount/2" ng-click="addEntry(computer)" class="item computer" ng-class="{active: computer==selectedItem}">
 			{{computer}}
 		</div>
 	</div>	
 	<div class="row">
-		<div ng-repeat="computer in computers | limitTo:-computerCount/2" ng-click="addEntry(computer)" class="item computer">
+		<div ng-repeat="computer in computers | limitTo:-computerCount/2" ng-click="addEntry(computer)" class="item computer" ng-class="{active: computer==selectedItem}">
 			{{computer}}
 		</div>
 	</div>
 	<div class="row">
-		<div ng-repeat="other in others" class="item other">
+		<div ng-repeat="other in others" class="item other" ng-click="addEntry(other)" ng-class="{active: other==selectedItem}">
 			{{other}}
 		</div>
 	</div>
@@ -22,11 +22,21 @@
 
 
 <aside class="protocol">
-	<div ng-repeat="entry in entries | limitTo:-10" class="entry">
-		{{entry}}
+	<div class="button" ng-click="entries.pop()">Delete last</div>
+	<div>
+		<div ng-repeat="entry in entries | limitTo:10" class="entry">
+			<div class="name">{{entry.name}}</div>
+			<div class="count">{{entry.count}}<div>
+		</div>
 	</div>
-</aside>
+
+</div></aside>
 
 <section>
-	<input type="text" ng-model="computerCount" ng-change="computerCountChange()">
+	#of items: <input type="text" ng-model="computerCount" ng-change="computerCountChange()">
+</section>
+
+<section class="export">
+    <div class="button" ng-click="export()">Export</div>
+    <textarea ng-model="exportContent"></textarea>
 </section>
