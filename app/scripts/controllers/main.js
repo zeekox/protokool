@@ -4,17 +4,23 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
 
 	$scope.computerCount = 12;
 
-	$scope.computerCountChange = function() {
-		var list = [];
+	var computers = $scope.computers = [];
+
+	var computerCountChange = $scope.computerCountChange = function() {
 
 		for (var i=1; i<=$scope.computerCount; i++) {
-			list.push(i);
+			computers.push(i);
 		}
-
-		$scope.computers = list;
 	};
 
-	$scope.computerCountChange();
+	computerCountChange();
+
+	var entries = $scope.entries = [];
+
+	$scope.addEntry = function(entry) {
+		entries.push(entry);
+	};
+
 
 	$scope.others =['Telefon', 'Anderes', 'Papier', 'Break/Missing'];
 });
