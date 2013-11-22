@@ -1,0 +1,32 @@
+<header>
+	<h3 class="text-muted">protoKool</h3>
+</header>
+
+<section class="items">
+	<div class="row">
+		<div ng-repeat="computer in computers | limitTo:computerCount/2" ng-click="addEntry(computer)" class="item computer">
+			{{computer}}
+		</div>
+	</div>	
+	<div class="row">
+		<div ng-repeat="computer in computers | limitTo:-computerCount/2" ng-click="addEntry(computer)" class="item computer">
+			{{computer}}
+		</div>
+	</div>
+	<div class="row">
+		<div ng-repeat="other in others" class="item other">
+			{{other}}
+		</div>
+	</div>
+</section>
+
+
+<aside class="protocol">
+	<div ng-repeat="entry in entries | limitTo:-10" class="entry">
+		{{entry}}
+	</div>
+</aside>
+
+<section>
+	<input type="text" ng-model="computerCount" ng-change="computerCountChange()">
+</section>
