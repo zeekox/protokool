@@ -1,7 +1,40 @@
+
+.items, .protocol {
+	padding: 0.5em;
+	margin: 1em; 
+	display: inline-block;
+	box-shadow: 0 0 1em #000;
+	border-radius: 1em;
+	background-color: #fff;
+}
+
+.items {
+	display:table;
+	width: calc(80% - 1em);
+}
+
+.protocol {
+	width: calc(10% - 1em);
+}
+
+.row {
+	display: table-row;
+}
+
+.item {
+	display: table-cell;
+	padding: 2em;
+	border-radius: 0.5em;
+	width: 2.1em;
+	height: 2.1em;
+	border: 1px solid #000;
+}
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: #999;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
