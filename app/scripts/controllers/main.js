@@ -15,19 +15,32 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope, localSto
 
 	computerCountChange();
 
+	var entriesKey = 'entries';
+	var entriesString = localStorageService.get(entriesKey);
 	var entries = $scope.entries = [];
-
 	var counter = 0;
+	
+	if (entriesString) {
+		$scope.entries = JSON.parse(entriesString);
+		entries = $scope.entries;
+		counter = entries.length + 1;
+	}
+
 
 	$scope.addEntry = function(entry) {
+		var updated_entry = {};
+
 		if($scope.selectedItem === entry && entries.length > 0) {
 			entries[0].count += 'X';
+			updated_entry = entries[0];
 		} else {
-	
+
 			$scope.selectedItem = entry;
-			entries.unshift({ id: counter++, name: entry, date: new Date(), count: ''});
+
+			updated_entry = { id: counter++, name: entry, date: new Date(), count: ''};
+			entries.unshift(updated_entry);
 		} 
-		localStorageService.add('localStorageKey','Add this!');
+		localStorageService.add(entriesKey, JSON.stringify(entries));
 	};
 
 	$scope.export = function() {
