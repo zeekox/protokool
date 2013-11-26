@@ -2,7 +2,8 @@
 
 angular.module('protoKoolApp', [
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ngTouch'
 ])
   .config(function ($routeProvider) {
     $routeProvider
