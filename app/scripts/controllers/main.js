@@ -22,6 +22,7 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope, localSto
 	
 	if (entriesString) {
 		$scope.entries = JSON.parse(entriesString);
+
 		entries = $scope.entries;
 		counter = entries.length + 1;
 	}
@@ -37,7 +38,22 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope, localSto
 
 			$scope.selectedItem = entry;
 
-			updated_entry = { id: counter++, name: entry, date: new Date(), count: ''};
+			var d = new Date();
+
+
+			var day = d.getDate();
+			var month = d.getMonth();
+			month++;
+			var year = d.getFullYear();
+			var hour = d.getHours();
+			var min = d.getMinutes();
+			var sec = d.getSeconds();
+			var date = year + '-' + month + '-' + day;
+			var time = hour + ':' + min + ':' + sec;
+
+			updated_entry = { id: counter++, name: entry, 
+				date: date, time: time,
+				count: ''};
 			entries.unshift(updated_entry);
 		} 
 		localStorageService.add(entriesKey, JSON.stringify(entries));
@@ -47,17 +63,8 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope, localSto
 		$scope.exportContent = '';
 		for (var i=0; i<entries.length; i++) {
 
-			var d = entries[i].date;
-			var day = d.getDate();
-			var month = d.getMonth();
-			month++;
-			var year = d.getFullYear();
-			var hour = d.getHours();
-			var min = d.getMinutes();
-			var sec = d.getSeconds();
-
-			$scope.exportContent += year + '-' + month + '-' + day + ';';
-			$scope.exportContent += hour + ':' + min + ':' + sec + ';';
+			$scope.exportContent += entries[i].date + ';';
+			$scope.exportContent += entries[i].time + ';';
 			$scope.exportContent += entries[i].name + ';' + entries[i].count.length + ';\n';
 		}
 
