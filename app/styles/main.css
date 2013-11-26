@@ -1,6 +1,7 @@
 
 .items, .protocol {
-	margin: 1em; 
+	margin: .5em 0; 
+	margin-left: .5em; 
 	display: inline-block;
 }
 .items, .protocol > div, .export > textarea, .export > div {
@@ -11,8 +12,8 @@
 }
 
 textarea {
-	width: 15%;
-	height: 10em;
+	width: 20%;
+	height: 20em;
 }
 
 .button {
@@ -22,9 +23,14 @@ textarea {
 	text-align: center;
 }
 
+body > *{
+	margin-left: 1em;
+}
+
+
 .export .button {
 	margin-top: 1em;
-	width: 5%;
+	width: 10%;
 }
 
 .items {
@@ -35,7 +41,8 @@ textarea {
 
 .protocol {
 	vertical-align: top;
-	width: calc(15% - 4em);
+	width: 21%;
+	min-width: 5em;
 }
 
 .row {
@@ -45,11 +52,12 @@ textarea {
 .item {
 	margin: 2em;
 	display: table-cell;
-	padding: 2em;
+	padding: 4% 1%;
 	border-radius: 0.5em;
-	width: 3em;
-	max-width: 3em;
-	height: 3em;
+	width: 6%;
+	min-width: 3%;
+	height: 10%;
+	min-height: 2em;
 	border: 1px solid #000;
 	text-align: center;
 	user-select: none;
