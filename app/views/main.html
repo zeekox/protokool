@@ -26,7 +26,7 @@
 <aside class="protocol">
 	<div class="button" ng-click="entries.splice(0,1)">Delete last</div>
 	<div>
-		<div ng-repeat="entry in entries | limitTo:10" class="entry">
+		<div ng-repeat="entry in entries | limitTo:10 track by $index" class="entry">
 			<div class="name">{{entry.name}}</div>
 			<div class="count">{{entry.count}}<div/>
 		</div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('LocalStorageModule').value('prefix', 'myPre');
+angular.module('LocalStorageModule').value('prefix', 'prtkl');
 
 angular.module('protoKoolApp', [
   'ngSanitize',
