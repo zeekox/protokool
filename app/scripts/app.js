@@ -1,9 +1,12 @@
 'use strict';
 
+angular.module('LocalStorageModule').value('prefix', 'myPre');
+
 angular.module('protoKoolApp', [
   'ngSanitize',
   'ngRoute',
-  'ngTouch'
+  'ngTouch',
+  'LocalStorageModule'
 ])
   .config(function ($routeProvider) {
     $routeProvider

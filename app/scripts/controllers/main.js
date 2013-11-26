@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
+angular.module('protoKoolApp').controller('MainCtrl', function ($scope, localStorageService) {
 
 	$scope.computerCount = 12;
 
@@ -26,7 +26,8 @@ angular.module('protoKoolApp').controller('MainCtrl', function ($scope) {
 	
 			$scope.selectedItem = entry;
 			entries.unshift({ id: counter++, name: entry, date: new Date(), count: ''});
-		}
+		} 
+		localStorageService.add('localStorageKey','Add this!');
 	};
 
 	$scope.export = function() {
